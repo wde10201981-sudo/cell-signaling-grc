@@ -6,7 +6,16 @@ This repository is the isolated, fresh-start prototype for the Cell Signaling GR
 
 This project models one GRC cell with layered internal state, explicit relationships, and a signal-driven event system. It is intentionally small and deterministic, with no external dependencies and no real production integrations.
 
-## Architecture
+## Framework specification — draft for review
+
+The proposed framework defines a common six-layer cell structure, specialized cell profiles, a versioned inter-cell signal contract, and evidence-bound AI analysis with explicit decision authority. This is architecture work, not an end-user application.
+
+- [Framework foundation](docs/FRAMEWORK.md) — minimum valid cell, layer information, relationships, signal handling, AI analysis and decision boundaries.
+- [Contrasting cell profiles](docs/CELL-PROFILES.md) — security assurance and identity operations, a worked exchange, and proposed acceptance cases.
+
+The specification is forward-looking. The Python code below remains the original single-cell deterministic skeleton; the new contracts and AI behaviors are not implemented yet.
+
+## Implemented skeleton
 
 - One GRC cell with layered records
 - Explicit relationships between records

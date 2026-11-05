@@ -1,6 +1,6 @@
 # Contrasting cell profiles and contract exercises
 
-**Draft 0.1 · Design examples, not executable implementations or completed tests**
+**Draft 0.2 · Design examples, not executable implementations or completed tests**
 
 These profiles exercise [the common framework](FRAMEWORK.md) without requiring identical operational records. All names, populations and events below are synthetic. A real organization must define its own responsibilities, evidence rules and delegations.
 
@@ -58,6 +58,21 @@ The effective date matters: a quarterly record from before the monthly requireme
 
 A reply is not automatically an approved decision. A peer's assertion of full coverage within its own population does not establish full coverage of the requesting cell's larger population. The framework carries both scopes through every step.
 
+### Homeostasis across the two profiles
+
+Each profile declares its own conditions under the shared feedback contract. Numeric limits and review periods are deliberately left for the responsible organization to approve.
+
+| Cell | Example condition | Disturbance | Proposed response | Evidence needed to establish recovery |
+|---|---|---|---|---|
+| Security assurance | Material coverage assertions remain supported by current evidence for their declared populations; unresolved gaps stay within explicitly authorized handling limits. | Supporting evidence expires, an obligation changes, or an uncovered population is discovered. | Reassess dependent conclusions, request evidence, assign authorized follow-up and escalate overdue material gaps. | Current evidence and a reviewed assessment for the affected scope; unresolved exclusions remain visible. A risk disposition alone does not establish coverage. |
+| Identity operations | In-scope privileged-access reviews execute at the required cadence and unresolved exceptions are handled within authorized limits. | A review is missed, evidence is withdrawn, or a privileged assignment lacks the required approval. | Determine the affected population, request owner review and propose authorized corrective actions with service-impact checks. | Evidence of the actual review/correction, treatment of exceptions and confirmation that required recovery criteria are met. A completed ticket alone is insufficient. |
+
+In the frequency-change example, the cells must evaluate readiness before the effective date, detect any unfulfilled obligation when it becomes applicable, and revisit execution after the operational response. Receiving a new procedure does not establish that monthly reviews actually occurred.
+
+A correction in the identity cell may affect service continuity elsewhere. These two cells must identify that dependency and obtain the relevant service owner's/cell's input when required; the example does not assume that service continuity has been evaluated. If no responsible peer is available, record the unresolved impact and follow the defined escalation or emergency policy.
+
+The security cell and identity cell can be in different states at the same time. The identity cell may have restored its own cloud workforce review condition while the security cell still has unproven service-account coverage. Local recovery must not automatically turn the broader requirement green.
+
 ## 4. Design acceptance cases
 
 These are requirements for future executable tests and expert evaluation. They have not been run as model-quality tests. Contract-validation cases can be deterministic; interpretation of coverage needs an agreed rubric and expert-reviewed source packets.
@@ -84,9 +99,23 @@ These are requirements for future executable tests and expert evaluation. They h
 | Model timeout or malformed output | Processing failure, not a negative or positive assurance conclusion. Preserve diagnostic status and permit bounded follow-up. |
 | Multi-hop exploration reaches its limit | Explicitly incomplete impact discovery; no claim that all affected records have been identified. |
 
+### Additional homeostasis acceptance cases
+
+| Case | Expected behavior |
+|---|---|
+| Evidence ages past its validity without a new event | Scheduled evaluation detects the loss of support and reevaluates dependent conditions. |
+| A remediation ticket closes without outcome evidence | Work completion is recorded, but the condition is not declared recovered. |
+| Small observations alternate around an alert threshold | Approved entry/exit rules prevent repeated contradictory actions; material breaches still escalate. |
+| Observability is lost after a breach | Preserve the last-known breach and mark current visibility unknown; do not report recovery. |
+| A local correction threatens a dependent service | Surface the tradeoff, seek required coordination/authorization, and do not assume organization-wide improvement. |
+| An action fails or the same condition repeatedly relapses | Record outcomes, enforce action/retry limits and escalate; do not loop indefinitely. |
+| A model proposes weakening a target to restore stability | Treat it as an unauthorized policy change unless separately approved; never record it as evidence of recovery. |
+| Valid scoped recovery evidence arrives | Verify the policy's recovery criteria/window, update only the supported condition/scope and notify dependent cells. |
+| A critical breach is masked by an otherwise favorable summary | The material breach remains visible and actionable; the summary cannot claim confirmed overall stability. |
+
 ## 5. First implementation boundary
 
-The first framework exercise should instantiate these two manifests and validate one scoped request/reply exchange with synthetic, versioned references. Include rejection of an unauthorized decision and handling of a repeated message. Do not connect bank systems or grant operational write authority for this exercise.
+The first framework exercise should instantiate these two manifests and validate one scoped request/reply exchange with synthetic, versioned references. Include rejection of an unauthorized decision and handling of a repeated message. Add one synthetic disturbance-and-recovery cycle with scheduled evidence expiry and a check that work completion alone cannot establish recovery. Do not connect bank systems or grant operational write authority for this exercise.
 
 The first AI exercise should answer one agreed question from a fixed evidence packet, such as whether the peer's evidence supports the specified population and period. The correct result must be judged from the underlying sources, not encoded as an answer in the packet. Evaluate successful completion, factual support, scope preservation and appropriate abstention separately. A correct label with defective reasoning is not a passing assessment.
 

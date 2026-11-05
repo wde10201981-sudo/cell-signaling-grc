@@ -1,6 +1,6 @@
 # Cell Signaling GRC — framework foundation
 
-**Draft 0.1 · November 4, 2026 · Architecture specification for review**
+**Draft 0.2 · November 4, 2026 · Architecture specification for review**
 
 This document defines the proposed framework contract. It does not describe capabilities already implemented. The Python skeleton currently supports one in-memory cell, layered records, explicit links, synchronous signals, and direct-neighbor requirement-change discovery. It has no AI, inter-cell transport, durable storage, authenticated authority or automatic assessment lifecycle.
 
@@ -15,6 +15,8 @@ A cell is not necessarily a department, database, application, AI agent or legal
 Every cell uses six common conceptual layers. Its profile specializes their contents and reasoning questions. The framework does not require identical physical schemas or one model per layer. AI reasons across the layers; the layers are not a six-step pipeline.
 
 The intelligence is logically part of each cell. Model infrastructure may be shared, but context, authority and access remain scoped to the calling cell. There is no assumed all-knowing central AI with authority over every cell.
+
+Homeostasis is a core framework requirement: a cell must monitor the conditions needed to fulfill its mandate, detect deviations, coordinate authorized responses and verify their effects. It is an ongoing feedback process, not a static compliant/noncompliant label. The definition and mechanics below are proposed engineering requirements for this framework, not claims about biological behavior.
 
 ## 2. Minimum valid cell
 
@@ -31,6 +33,7 @@ A cell must declare the following manifest. These are logical fields, not a comm
 | Capabilities | Supported incoming/outgoing signal types and versions, supported analysis questions, and explicit unsupported capabilities. |
 | Data policy | Source access, permitted recipients, classification, retention and evidence-sharing restrictions. |
 | Lifecycle | Active, suspended or retired status, with effective time and reason. |
+| Homeostasis policy | Versioned objectives, measured conditions and acceptable bounds, observation/freshness rules, response and escalation authority, recovery evidence, and affected peer dependencies. Unknown or unconfigured conditions prevent claims of confirmed stability. |
 
 Each layer declares one of: **managed here**, **referenced/delegated**, **not yet available**, or **not applicable with rationale**. Delegation identifies the responsible provider and retrieval contract; it does not remove the cell owner's accountability. Unavailable data remains unavailable rather than being invented to make the manifest complete. Identity, authority and provenance responsibilities cannot be declared not applicable.
 
@@ -120,6 +123,37 @@ If relevant inputs change during analysis, preserve the old result as a historic
 
 An organization's facts cannot be embedded as bespoke application code. Adopters supply records, mappings, scope definitions and policy/profile configurations. Shared code implements the framework's common rules.
 
+### 6.1. Homeostasis: the feedback contract
+
+Each cell must sustain acceptable conditions for its mandate as data, obligations and dependencies change. Acceptable does not mean unchanged, risk-free or universally compliant. It means the declared conditions are supported by current observations and fall within authorized bounds. Known gaps and accepted risks remain visible as distinct facts.
+
+**Define the condition before selecting an action.** Each monitored condition declares:
+
+- A stable condition ID, accountable owner, applicable scope and policy version.
+- The objective, indicator or evidence-based predicate, units/denominator where relevant, and source of the authorized bounds.
+- How it is observed, the acceptable evidence age and coverage, evaluation cadence, and relevant change/dependency triggers.
+- Warning, breach and recovery rules; response priority and maximum tolerated delay.
+- Permitted responses, approval requirements, escalation destination and safe fallback.
+- Required evidence of recovery, any sustained observation period, and dependent cells whose objectives or operations may be affected.
+
+Conditions may concern evidenced control execution, unresolved coverage gaps, overdue decisions, stale evidence or the cell's own ability to process signals. These are separate dimensions. A functioning message bus does not establish control effectiveness; a favorable aggregate score must not hide a critical breach or unknown population.
+
+**Close the feedback loop:** observe → compare against authorized conditions → diagnose the deviation and uncertainties → select an authorized response → carry out or request that response → obtain fresh evidence → verify recovery. If a response fails, produces adverse effects or cannot be verified, reassess and escalate rather than declaring success.
+
+The AI interprets evidence, proposes causes and compares response options. A causal explanation remains a hypothesis unless established. The framework enforces authority, evaluates deterministic bounds where applicable and records the result. Restoration is established through evidence, not by a model saying “fixed” or by a task being marked complete. Autonomous responses require an explicit, bounded delegation; homeostasis does not create new authority.
+
+Time itself can disturb a cell. Evidence can expire, exceptions can lapse, deadlines can pass and a peer can become unavailable without any new source event. The design therefore requires scheduled reevaluation in addition to event-triggered analysis. Absence of incoming signals is not evidence of stability.
+
+**Represent condition and observability separately.** For each condition, use a proposed state vocabulary of within bounds, warning, outside bounds, recovering and unknown, together with observation freshness/adequacy and the last evaluation time. Preserve a last-known breach when visibility is lost; append unknown current observability rather than replacing that breach with a reassuring status. Recovery requires the declared evidence and confirmation window. Missing or contradictory evidence cannot establish within-bounds status. Any cell-level summary must expose material breaches and unknowns rather than average them away.
+
+**Avoid repeated overcorrection.** Profiles must define deduplication, retry/action limits, a recheck interval and, where appropriate, different thresholds for entering and leaving an alert state. These rules prevent small measurement changes from repeatedly opening and closing the same issue. Critical conditions retain immediate escalation rules; quiet periods cannot suppress required urgent handling. Irreversible or high-impact changes need explicit authority and a containment/recovery plan where applicable.
+
+**Coordinate local and shared stability.** Before proposing a material correction, assess its known dependencies and possible effects on peer cells. For example, removing a privileged account may improve an access-control indicator while disrupting a dependent business service. A local improvement does not establish organizational recovery. Obtain the required peer input and authorization, disclose unknown dependencies, and escalate conflicting objectives to the accountable authority. Time-bounded emergency authority must be established in advance; the AI cannot invent it when coordination is slow.
+
+A cell must not restore a green status by hiding evidence, excluding an inconvenient population, closing a gap without support or relaxing a threshold. Authorized changes to objectives, scope or risk disposition are versioned decisions and trigger reassessment; they are not retroactive evidence of recovery. Adaptation to a legitimate new requirement is supported without confusing a changed target with an improved condition.
+
+Suggested lifecycle signals are `condition.deviation_detected`, `response.proposed`, `response.executed`, `recovery.observed` and `recovery.verified`. Each uses the common envelope and references the condition/policy revision, scope, observations, response/authorization and causal chain as applicable. Execution and recovery are separate events. State reversals retain their history. These signals and the feedback controller are not implemented in the current skeleton.
+
 ## 7. Decision authority and action boundaries
 
 | Activity | Proposed default boundary |
@@ -144,6 +178,6 @@ Contract/profile versions must be explicit. Breaking semantic changes require a 
 
 The defaults in this draft are proposals for review, not established banking standards or confirmed customer requirements.
 
-Open decisions include: the first cell's exact mandate and decision rights; the adopter's authoritative entity/scope vocabulary; evidence sufficiency and freshness rules by domain; ownership conflicts; approved inter-cell authentication/data-sharing mechanisms; retention and replay requirements; and domain evaluation cases reviewed by subject-matter experts.
+Open decisions include: the first cell's exact mandate and decision rights; the adopter's authoritative entity/scope vocabulary; evidence sufficiency and freshness rules by domain; ownership conflicts; approved inter-cell authentication/data-sharing mechanisms; retention and replay requirements; homeostatic conditions, bounds, recovery rules and cross-cell conflicts; and domain evaluation cases reviewed by subject-matter experts.
 
 The next bounded implementation should express one manifest and one versioned signal contract as executable validations, then demonstrate an exchange between the two profiles in [CELL-PROFILES.md](CELL-PROFILES.md). First check references, scope, authority, duplicate delivery and withdrawal behavior deterministically. Add a narrowly defined AI question only after its inputs, rubric and expert-reviewed expected outcomes are agreed. No app interface is needed for these framework checks.

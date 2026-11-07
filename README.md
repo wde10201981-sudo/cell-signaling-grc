@@ -13,7 +13,7 @@ The proposed framework defines a common six-layer cell structure, specialized ce
 - [Framework foundation](docs/FRAMEWORK.md) — minimum valid cell, layer information, relationships, signal handling, AI analysis and decision boundaries.
 - [Contrasting cell profiles](docs/CELL-PROFILES.md) — security assurance and identity operations, a worked exchange, and proposed acceptance cases.
 
-The specification is forward-looking. The Python code below remains the original single-cell deterministic skeleton; the new contracts and AI behaviors are not implemented yet.
+The full specification remains forward-looking. A bounded two-cell exercise now tests scope, cycle timing and evidence withdrawal alongside the original skeleton. AI, authenticated transport and production approvals remain unimplemented.
 
 ## Implemented skeleton
 
@@ -38,3 +38,12 @@ python -m cell_signaling.demo
 ```bash
 python -m unittest discover -s cell_signaling -p 'test_*.py' -v
 ```
+
+
+## Two-cell coverage exercise
+
+```bash
+python -m cell_signaling.coverage_demo
+```
+
+No Ollama server is needed. See [contract and limits](docs/COVERAGE-EXERCISE.md).

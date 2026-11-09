@@ -8,7 +8,7 @@ from .assessment_contract import VERSION, DIMENSIONS, STATES, ContractError, dig
 
 MODEL = 'qwen3:8b'
 BASE_URL = 'http://127.0.0.1:11434'
-ADAPTER_VERSION = 'ollama-probe-0.1'
+ADAPTER_VERSION = 'ollama-probe-0.2'
 OPTIONS = {'temperature': 0, 'num_ctx': 8192, 'num_predict': 3072}
 MAX_RESPONSE_BYTES = 2_000_000
 MAX_PROMPT_BYTES = 24_000
@@ -76,7 +76,12 @@ TEXT = {'type': 'string', 'minLength': 1}
 
 
 def assessment_schema(packet):
-    citation = obj({'source_id': enum(s['id'] for s in packet['sources']), 'quote': TEXT})
+    citation = {'oneOf': [
+        obj({'source_id': enum(s['id'] for s in packet['sources']),
+             'purpose': enum(['support']), 'field': enum(['text']), 'value': TEXT}),
+        obj({'source_id': enum(s['id'] for s in packet['sources']),
+             'purpose': enum(['support', 'scope_limitation']),
+             'field': enum(['populations']), 'value': array(TEXT)})]}
     dimension = obj({'state': enum(STATES), 'explanation': TEXT, 'citations': array(citation)})
     row = obj({'population': enum(packet['populations']), **{d: dimension for d in DIMENSIONS}})
     return obj({'contract_version': enum([VERSION]), 'input_hash': enum([digest(packet)]),

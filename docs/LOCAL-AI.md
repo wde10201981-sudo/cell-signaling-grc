@@ -108,3 +108,13 @@ References: [Ollama chat API](https://docs.ollama.com/api/chat),
 [structured outputs](https://docs.ollama.com/capabilities/structured-outputs),
 [local configuration](https://docs.ollama.com/faq),
 [model inventory](https://docs.ollama.com/api/tags).
+
+
+### Scope-citation correction
+
+Adapter `ollama-probe-0.2` uses assessment contract 0.2. It requests explicit
+support versus scope-limitation citations and can cite structured population fields.
+This fixes a false rejection of an on-premises abstention explained by AWS-only control
+scope. It does not permit AWS evidence to establish on-premises coverage. Earlier run
+files remain unchanged; rerun the same command after pulling the correction. The server
+and model do not need restarting because the new schema/instructions travel per request.

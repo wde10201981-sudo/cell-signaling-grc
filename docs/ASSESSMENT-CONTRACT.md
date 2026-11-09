@@ -1,6 +1,6 @@
 # First AI assessment contract
 
-Draft 0.1. Backend only. This implements a model-independent input/output boundary
+Draft 0.2. Backend only. This implements a model-independent input/output boundary
 and a bounded coordinator. The contract itself has no model dependency, UI, operational writeback,
 automated approval, or claim of AI accuracy. Existing demonstrations remain unchanged.
 
@@ -51,11 +51,11 @@ into a falsely favorable excerpt. Namespace checks are not authentication.
 ## Required answer
 
 One row per population; each row separates **control fit**, **implementation** and
-**execution**. Every dimension includes a state, explanation and exact source excerpts.
+**execution**. Every dimension includes a state, explanation and typed source citations.
 States are supported, not_established, contradicted and conflicting. Missing evidence
 is not proof of failure. Conflicting assertions require reconciliation, not voting.
 Positive/adverse judgments need a relevant source type; conflicts need multiple
-references. Validation checks reference existence, excerpt matching and declared scope.
+references. Validation checks reference existence, excerpt/field matching, citation purpose and declared scope.
 It cannot establish that the excerpt entails the conclusion or that source facts are true.
 
 Questions and actions are proposals only. No agent-supplied approval, overall grade,
@@ -117,3 +117,40 @@ and local run archive described above. Its tests use mocked responses; real mode
 reasoning still requires a local run and expert review. The four authored fixtures
 remain drafts, not an approved or held-out benchmark. Automatic memory retrieval and
 operational authority remain unimplemented.
+
+
+## Citation purposes (contract 0.2)
+
+The first local run exposed a contract defect: an AWS-only control was cited to
+explain why on-premises coverage was not established. The old validator treated
+that reference as an attempt to prove on-premises coverage and rejected it.
+
+Citations now explicitly contain `source_id`, `purpose`, `field` and `value`:
+
+```json
+{"source_id":"C1","purpose":"scope_limitation","field":"populations","value":["aws"]}
+```
+
+This is permitted only in a `not_established` finding for a population absent from
+that exact source population array. The complete array must match; a prose description
+that merely says "stated population" is insufficient to establish an AWS boundary.
+It establishes the limitation of that source, not the absence of every other control
+or evidence item. Explanations must keep absence claims scoped to the supplied packet.
+
+For ordinary factual support, use `purpose: support`, `field: text`, and an exact
+excerpt in `value`. The source must include the row population. Supporting population
+metadata may also be cited, but cannot replace required text support for control fit,
+implementation or execution. Conflict requires text from at least two distinct sources;
+two fields of one source do not count as independent conflicting sources.
+
+Limitation references cannot satisfy positive/adverse/conflict evidence requirements,
+cannot refer to inactive sources, and cannot claim that a source excludes a population
+which it includes. All source, organization, snapshot and approval boundaries remain.
+The challenge must still evaluate whether each explanation follows from its sources;
+structural validation does not establish semantic correctness.
+
+This is a versioned response change to `coverage-assessment-0.2`; prior saved output
+is neither silently converted nor approved. The local schema, instructions and authored
+fixtures were updated together. A diagnostic replay with manually revised citation
+representation is a regression exercise, not a new live model result. New scope tests
+cover both valid abstention explanations and attempts to bypass the original boundary.

@@ -40,7 +40,7 @@ class AssessmentContractTests(unittest.TestCase):
             with self.assertRaises(ContractError): validate_response(self.packet, candidate)
 
     def test_wrong_quote_and_unknown_citation_rejected(self):
-        for key,value in [('quote','fabricated'),('source_id','nonexistent')]:
+        for key,value in [('value','fabricated'),('source_id','nonexistent')]:
             candidate = copy.deepcopy(self.proposal)
             candidate['rows'][0]['execution']['citations'][0][key] = value
             with self.assertRaises(ContractError): validate_response(self.packet,candidate)

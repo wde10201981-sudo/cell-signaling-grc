@@ -228,4 +228,6 @@ def run_assessment(packet, assessor, challenger, current_hash):
         result['status'] = 'expert_review_required'
     except (ContractError, TimeoutError, ConnectionError, ValueError, TypeError, KeyError) as exc:
         result['error'] = type(exc).__name__  # do not leak arbitrary provider/client text
+        if type(exc) is ContractError:
+            result['error_detail'] = str(exc)  # fixed validator messages, not provider text
     return result

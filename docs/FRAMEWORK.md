@@ -190,4 +190,4 @@ The six-layer specification above remains broader than the implementation. The
 [two-cell exercise](COVERAGE-EXERCISE.md) tests structured timing and dependency rules.
 The [first assessment contract](ASSESSMENT-CONTRACT.md) adds a model-independent
 assignment/response boundary and two-role coordinator with synthetic fixtures.
-Neither implements AI reasoning, production transport or autonomous decision rights.
+These deterministic exercises do not establish AI reasoning accuracy, production transport or autonomous decision rights. A separate [local AI probe](LOCAL-AI.md) connects the assessment contract to Ollama for a bounded synthetic trial.

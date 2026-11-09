@@ -13,7 +13,7 @@ The proposed framework defines a common six-layer cell structure, specialized ce
 - [Framework foundation](docs/FRAMEWORK.md) — minimum valid cell, layer information, relationships, signal handling, AI analysis and decision boundaries.
 - [Contrasting cell profiles](docs/CELL-PROFILES.md) — security assurance and identity operations, a worked exchange, and proposed acceptance cases.
 
-The full specification remains forward-looking. A bounded two-cell exercise now tests scope, cycle timing and evidence withdrawal alongside the original skeleton. AI, authenticated transport and production approvals remain unimplemented.
+The full specification remains forward-looking. A bounded two-cell exercise now tests scope, cycle timing and evidence withdrawal alongside the original skeleton. A local model probe is available; authenticated transport and production approvals remain unimplemented.
 
 ## Implemented skeleton
 
@@ -53,7 +53,7 @@ No Ollama server is needed. See [contract and limits](docs/COVERAGE-EXERCISE.md)
 
 The first model-independent assessment contract defines scoped input packets,
 per-population control-fit/implementation/execution judgments, a separate challenge
-role, and failure/staleness handling. No model is connected yet.
+role, and failure/staleness handling. A separate opt-in local adapter now exercises this contract.
 
 ```bash
 python -m cell_signaling.assessment_demo
@@ -61,3 +61,16 @@ python -m cell_signaling.assessment_demo
 
 This uses four authored synthetic cases, not AI output. See
 [assessment contract and limits](docs/ASSESSMENT-CONTRACT.md).
+
+
+## Live local AI probe
+
+With local Ollama running and qwen3:8b installed:
+
+```bash
+python -m cell_signaling.run_local_assessment --run
+```
+
+Runs one synthetic limited-scope assignment, saves reviewable run history to
+`local-output/`, and grants no operational authority. See [Windows startup,
+assessment memory and limits](docs/LOCAL-AI.md). Offline tests do not run a model.

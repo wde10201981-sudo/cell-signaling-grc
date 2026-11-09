@@ -1,7 +1,7 @@
 # First AI assessment contract
 
 Draft 0.1. Backend only. This implements a model-independent input/output boundary
-and a bounded coordinator. There is no model connection, UI, operational writeback,
+and a bounded coordinator. The contract itself has no model dependency, UI, operational writeback,
 automated approval, or claim of AI accuracy. Existing demonstrations remain unchanged.
 
 ## Where intelligence belongs
@@ -108,3 +108,12 @@ including misleading mappings, malicious source instructions and disputed identi
 Do not tune on expected responses and call that a generalization test. Do not authorize
 autonomous operational actions from these results. Human review by exception remains a
 future operating target requiring measured error rates and appropriate sampling.
+
+
+## Local adapter implementation
+
+The separate [local AI probe](LOCAL-AI.md) now implements the bounded Ollama adapter
+and local run archive described above. Its tests use mocked responses; real model
+reasoning still requires a local run and expert review. The four authored fixtures
+remain drafts, not an approved or held-out benchmark. Automatic memory retrieval and
+operational authority remain unimplemented.

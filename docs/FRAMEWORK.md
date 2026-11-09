@@ -181,3 +181,13 @@ The defaults in this draft are proposals for review, not established banking sta
 Open decisions include: the first cell's exact mandate and decision rights; the adopter's authoritative entity/scope vocabulary; evidence sufficiency and freshness rules by domain; ownership conflicts; approved inter-cell authentication/data-sharing mechanisms; retention and replay requirements; homeostatic conditions, bounds, recovery rules and cross-cell conflicts; and domain evaluation cases reviewed by subject-matter experts.
 
 The next bounded implementation should express one manifest and one versioned signal contract as executable validations, then demonstrate an exchange between the two profiles in [CELL-PROFILES.md](CELL-PROFILES.md). First check references, scope, authority, duplicate delivery and withdrawal behavior deterministically. Add a narrowly defined AI question only after its inputs, rubric and expert-reviewed expected outcomes are agreed. No app interface is needed for these framework checks.
+
+
+
+## Bounded implementation references
+
+The six-layer specification above remains broader than the implementation. The
+[two-cell exercise](COVERAGE-EXERCISE.md) tests structured timing and dependency rules.
+The [first assessment contract](ASSESSMENT-CONTRACT.md) adds a model-independent
+assignment/response boundary and two-role coordinator with synthetic fixtures.
+Neither implements AI reasoning, production transport or autonomous decision rights.

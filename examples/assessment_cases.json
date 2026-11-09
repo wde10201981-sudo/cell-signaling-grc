@@ -1,0 +1,747 @@
+{
+  "synthetic": true,
+  "approval": "draft_not_expert_approved",
+  "cases": [
+    {
+      "name": "full_support",
+      "packet": {
+        "contract_version": "coverage-assessment-0.1",
+        "organization": "SYNTHETIC",
+        "cell": "SEC",
+        "question": "Does control C1 and its evidence support the monthly access review requirement for each population?",
+        "requirement_id": "R1",
+        "evaluation_date": "2026-12-02",
+        "period_start": "2026-11-01",
+        "period_end": "2026-11-30",
+        "populations": [
+          "aws",
+          "on-premises"
+        ],
+        "rubric_version": "monthly-access-review-draft-0.1",
+        "criteria": {
+          "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+          "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+          "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+        },
+        "limitations": [
+          "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+          "No broader operational effectiveness or regulatory compliance conclusion."
+        ],
+        "layers": {
+          "identity_scope": [],
+          "governance_obligations": [
+            "R1"
+          ],
+          "risk_controls": [
+            "C1"
+          ],
+          "evidence_assurance": [
+            "E1",
+            "E2"
+          ],
+          "work_decisions": [],
+          "history_provenance": []
+        },
+        "sources": [
+          {
+            "id": "R1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "R1",
+            "revision": 1,
+            "layer": "governance_obligations",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://R1",
+            "text": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+          },
+          {
+            "id": "C1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "C1",
+            "revision": 1,
+            "layer": "risk_controls",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://C1",
+            "text": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+          },
+          {
+            "id": "E1",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E1",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E1",
+            "text": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+          },
+          {
+            "id": "E2",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E2",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E2",
+            "text": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+          }
+        ]
+      },
+      "reference_proposal": {
+        "contract_version": "coverage-assessment-0.1",
+        "input_hash": "f674187becd984bec46183c4baa2cf5811e80f1928e1a9d7886eff3fb9ba9427",
+        "rows": [
+          {
+            "population": "aws",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "supported",
+              "explanation": "E1 reports an enabled, owned process covering the population.",
+              "citations": [
+                {
+                  "source_id": "E1",
+                  "quote": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+                }
+              ]
+            },
+            "execution": {
+              "state": "supported",
+              "explanation": "E2 reports completion and decisions on November 28; December 2 receipt is separate.",
+              "citations": [
+                {
+                  "source_id": "E2",
+                  "quote": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+                }
+              ]
+            }
+          },
+          {
+            "population": "on-premises",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "supported",
+              "explanation": "E1 reports an enabled, owned process covering the population.",
+              "citations": [
+                {
+                  "source_id": "E1",
+                  "quote": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+                }
+              ]
+            },
+            "execution": {
+              "state": "supported",
+              "explanation": "E2 reports completion and decisions on November 28; December 2 receipt is separate.",
+              "citations": [
+                {
+                  "source_id": "E2",
+                  "quote": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+                }
+              ]
+            }
+          }
+        ],
+        "questions": [],
+        "proposed_actions": [
+          "Retain for expert review; do not change access or approve compliance."
+        ]
+      },
+      "expected_summary": "supported_coverage"
+    },
+    {
+      "name": "limited_scope",
+      "packet": {
+        "contract_version": "coverage-assessment-0.1",
+        "organization": "SYNTHETIC",
+        "cell": "SEC",
+        "question": "Does control C1 and its evidence support the monthly access review requirement for each population?",
+        "requirement_id": "R1",
+        "evaluation_date": "2026-12-02",
+        "period_start": "2026-11-01",
+        "period_end": "2026-11-30",
+        "populations": [
+          "aws",
+          "on-premises"
+        ],
+        "rubric_version": "monthly-access-review-draft-0.1",
+        "criteria": {
+          "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+          "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+          "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+        },
+        "limitations": [
+          "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+          "No broader operational effectiveness or regulatory compliance conclusion."
+        ],
+        "layers": {
+          "identity_scope": [],
+          "governance_obligations": [
+            "R1"
+          ],
+          "risk_controls": [
+            "C1"
+          ],
+          "evidence_assurance": [
+            "E1",
+            "E2"
+          ],
+          "work_decisions": [],
+          "history_provenance": []
+        },
+        "sources": [
+          {
+            "id": "R1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "R1",
+            "revision": 1,
+            "layer": "governance_obligations",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://R1",
+            "text": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+          },
+          {
+            "id": "C1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "C1",
+            "revision": 1,
+            "layer": "risk_controls",
+            "populations": [
+              "aws"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://C1",
+            "text": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+          },
+          {
+            "id": "E1",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E1",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E1",
+            "text": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+          },
+          {
+            "id": "E2",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E2",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E2",
+            "text": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+          }
+        ]
+      },
+      "reference_proposal": {
+        "contract_version": "coverage-assessment-0.1",
+        "input_hash": "79e1eafd45e8f1a58908a3c614bab6ba00f7fc7a9c24d9b61b3dbd05ddaef752",
+        "rows": [
+          {
+            "population": "aws",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "supported",
+              "explanation": "E1 reports an enabled, owned process covering the population.",
+              "citations": [
+                {
+                  "source_id": "E1",
+                  "quote": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+                }
+              ]
+            },
+            "execution": {
+              "state": "supported",
+              "explanation": "E2 reports completion and decisions on November 28; December 2 receipt is separate.",
+              "citations": [
+                {
+                  "source_id": "E2",
+                  "quote": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+                }
+              ]
+            }
+          },
+          {
+            "population": "on-premises",
+            "control_fit": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            },
+            "implementation": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            },
+            "execution": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            }
+          }
+        ],
+        "questions": [
+          "Obtain or reconcile the missing or conflicting population evidence."
+        ],
+        "proposed_actions": [
+          "Retain for expert review; do not change access or approve compliance."
+        ]
+      },
+      "expected_summary": "partial_support"
+    },
+    {
+      "name": "missing_evidence",
+      "packet": {
+        "contract_version": "coverage-assessment-0.1",
+        "organization": "SYNTHETIC",
+        "cell": "SEC",
+        "question": "Does control C1 and its evidence support the monthly access review requirement for each population?",
+        "requirement_id": "R1",
+        "evaluation_date": "2026-12-02",
+        "period_start": "2026-11-01",
+        "period_end": "2026-11-30",
+        "populations": [
+          "aws",
+          "on-premises"
+        ],
+        "rubric_version": "monthly-access-review-draft-0.1",
+        "criteria": {
+          "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+          "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+          "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+        },
+        "limitations": [
+          "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+          "No broader operational effectiveness or regulatory compliance conclusion."
+        ],
+        "layers": {
+          "identity_scope": [],
+          "governance_obligations": [
+            "R1"
+          ],
+          "risk_controls": [
+            "C1"
+          ],
+          "evidence_assurance": [],
+          "work_decisions": [],
+          "history_provenance": []
+        },
+        "sources": [
+          {
+            "id": "R1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "R1",
+            "revision": 1,
+            "layer": "governance_obligations",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://R1",
+            "text": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+          },
+          {
+            "id": "C1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "C1",
+            "revision": 1,
+            "layer": "risk_controls",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://C1",
+            "text": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+          }
+        ]
+      },
+      "reference_proposal": {
+        "contract_version": "coverage-assessment-0.1",
+        "input_hash": "60cee3f1cbff6e07094a4f4419fa42a350588cf618954132336571415d222e7e",
+        "rows": [
+          {
+            "population": "aws",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            },
+            "execution": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            }
+          },
+          {
+            "population": "on-premises",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            },
+            "execution": {
+              "state": "not_established",
+              "explanation": "The supplied records do not establish this dimension for this population; this does not prove failure.",
+              "citations": []
+            }
+          }
+        ],
+        "questions": [
+          "Obtain or reconcile the missing or conflicting population evidence."
+        ],
+        "proposed_actions": [
+          "Retain for expert review; do not change access or approve compliance."
+        ]
+      },
+      "expected_summary": "partial_support"
+    },
+    {
+      "name": "conflicting_evidence",
+      "packet": {
+        "contract_version": "coverage-assessment-0.1",
+        "organization": "SYNTHETIC",
+        "cell": "SEC",
+        "question": "Does control C1 and its evidence support the monthly access review requirement for each population?",
+        "requirement_id": "R1",
+        "evaluation_date": "2026-12-02",
+        "period_start": "2026-11-01",
+        "period_end": "2026-11-30",
+        "populations": [
+          "aws",
+          "on-premises"
+        ],
+        "rubric_version": "monthly-access-review-draft-0.1",
+        "criteria": {
+          "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+          "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+          "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+        },
+        "limitations": [
+          "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+          "No broader operational effectiveness or regulatory compliance conclusion."
+        ],
+        "layers": {
+          "identity_scope": [],
+          "governance_obligations": [
+            "R1"
+          ],
+          "risk_controls": [
+            "C1"
+          ],
+          "evidence_assurance": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "work_decisions": [],
+          "history_provenance": []
+        },
+        "sources": [
+          {
+            "id": "R1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "R1",
+            "revision": 1,
+            "layer": "governance_obligations",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://R1",
+            "text": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+          },
+          {
+            "id": "C1",
+            "organization": "SYNTHETIC",
+            "cell": "SEC",
+            "record": "C1",
+            "revision": 1,
+            "layer": "risk_controls",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://C1",
+            "text": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+          },
+          {
+            "id": "E1",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E1",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E1",
+            "text": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+          },
+          {
+            "id": "E2",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E2",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E2",
+            "text": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+          },
+          {
+            "id": "E3",
+            "organization": "SYNTHETIC",
+            "cell": "IAM",
+            "record": "E3",
+            "revision": 1,
+            "layer": "evidence_assurance",
+            "populations": [
+              "aws",
+              "on-premises"
+            ],
+            "observed_on": "2026-11-30",
+            "received_on": "2026-12-02",
+            "status": "current",
+            "location": "synthetic://E3",
+            "text": "Independent November C1 reconciliation for the same account population reports no completed November review or recorded decisions as of November 30. The conflict with E2 is unresolved."
+          }
+        ]
+      },
+      "reference_proposal": {
+        "contract_version": "coverage-assessment-0.1",
+        "input_hash": "a74e857f4f3254eeb181841c85f15e0b57ef637752f6376d10df2f3137779e5a",
+        "rows": [
+          {
+            "population": "aws",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "supported",
+              "explanation": "E1 reports an enabled, owned process covering the population.",
+              "citations": [
+                {
+                  "source_id": "E1",
+                  "quote": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+                }
+              ]
+            },
+            "execution": {
+              "state": "conflicting",
+              "explanation": "E2 and E3 give incompatible November execution accounts for the same population; no majority vote resolves this.",
+              "citations": [
+                {
+                  "source_id": "E2",
+                  "quote": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+                },
+                {
+                  "source_id": "E3",
+                  "quote": "Independent November C1 reconciliation for the same account population reports no completed November review or recorded decisions as of November 30. The conflict with E2 is unresolved."
+                }
+              ]
+            }
+          },
+          {
+            "population": "on-premises",
+            "control_fit": {
+              "state": "supported",
+              "explanation": "C1 describes the required owner review, population and monthly deadline.",
+              "citations": [
+                {
+                  "source_id": "R1",
+                  "quote": "Approved owners must review all privileged accounts on AWS and on-premises production servers monthly, by month end."
+                },
+                {
+                  "source_id": "C1",
+                  "quote": "Control C1 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+                }
+              ]
+            },
+            "implementation": {
+              "state": "supported",
+              "explanation": "E1 reports an enabled, owned process covering the population.",
+              "citations": [
+                {
+                  "source_id": "E1",
+                  "quote": "Configuration test for C1 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+                }
+              ]
+            },
+            "execution": {
+              "state": "conflicting",
+              "explanation": "E2 and E3 give incompatible November execution accounts for the same population; no majority vote resolves this.",
+              "citations": [
+                {
+                  "source_id": "E2",
+                  "quote": "November C1 review report: approved owners reviewed all privileged accounts in the stated population on November 28; decisions are recorded. This report was received December 2."
+                },
+                {
+                  "source_id": "E3",
+                  "quote": "Independent November C1 reconciliation for the same account population reports no completed November review or recorded decisions as of November 30. The conflict with E2 is unresolved."
+                }
+              ]
+            }
+          }
+        ],
+        "questions": [
+          "Obtain or reconcile the missing or conflicting population evidence."
+        ],
+        "proposed_actions": [
+          "Retain for expert review; do not change access or approve compliance."
+        ]
+      },
+      "expected_summary": "needs_review"
+    }
+  ]
+}

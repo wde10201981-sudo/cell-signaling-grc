@@ -47,3 +47,17 @@ python -m cell_signaling.coverage_demo
 ```
 
 No Ollama server is needed. See [contract and limits](docs/COVERAGE-EXERCISE.md).
+
+
+## Assessment contract (backend only)
+
+The first model-independent assessment contract defines scoped input packets,
+per-population control-fit/implementation/execution judgments, a separate challenge
+role, and failure/staleness handling. No model is connected yet.
+
+```bash
+python -m cell_signaling.assessment_demo
+```
+
+This uses four authored synthetic cases, not AI output. See
+[assessment contract and limits](docs/ASSESSMENT-CONTRACT.md).

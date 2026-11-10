@@ -1,0 +1,482 @@
+[
+  {
+    "id": "probe-01",
+    "packet": {
+      "contract_version": "coverage-assessment-0.2",
+      "organization": "SYNTHETIC-PROBE",
+      "cell": "SEC",
+      "question": "Assess the supplied monthly access-review requirement for hosted systems.",
+      "requirement_id": "R1",
+      "evaluation_date": "2026-12-02",
+      "period_start": "2026-11-01",
+      "period_end": "2026-11-30",
+      "populations": [
+        "hosted"
+      ],
+      "rubric_version": "monthly-access-review-draft-0.1",
+      "criteria": {
+        "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+        "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+        "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+      },
+      "limitations": [
+        "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+        "No broader operational effectiveness or regulatory compliance conclusion."
+      ],
+      "layers": {
+        "identity_scope": [],
+        "governance_obligations": [
+          "R1"
+        ],
+        "risk_controls": [
+          "C1"
+        ],
+        "evidence_assurance": [
+          "E1",
+          "E2"
+        ],
+        "work_decisions": [],
+        "history_provenance": []
+      },
+      "sources": [
+        {
+          "id": "R1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "R1",
+          "revision": 1,
+          "layer": "governance_obligations",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://R1",
+          "text": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end."
+        },
+        {
+          "id": "C1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "C1",
+          "revision": 1,
+          "layer": "risk_controls",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://C1",
+          "text": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+        },
+        {
+          "id": "E1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E1",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E1",
+          "text": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+        },
+        {
+          "id": "E2",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E2",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E2",
+          "text": "K7 report export for November: no review completion or decision-recording details are included in this export."
+        }
+      ]
+    },
+    "proposal": {
+      "contract_version": "coverage-assessment-0.2",
+      "input_hash": "filled_by_runner",
+      "rows": [
+        {
+          "population": "hosted",
+          "control_fit": {
+            "state": "supported",
+            "explanation": "K7 addresses the monthly owner review requirement for hosted systems.",
+            "citations": [
+              {
+                "source_id": "R1",
+                "value": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end.",
+                "purpose": "support",
+                "field": "text"
+              },
+              {
+                "source_id": "C1",
+                "value": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "implementation": {
+            "state": "supported",
+            "explanation": "The implementation test establishes enabled review workflow, approved owners and the stated account population.",
+            "citations": [
+              {
+                "source_id": "E1",
+                "value": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "execution": {
+            "state": "not_established",
+            "explanation": "The supplied records do not establish timely review completion and decision recording.",
+            "citations": [
+              {
+                "source_id": "E2",
+                "purpose": "support",
+                "field": "text",
+                "value": "K7 report export for November: no review completion or decision-recording details are included in this export."
+              }
+            ]
+          }
+        }
+      ],
+      "questions": [],
+      "proposed_actions": []
+    }
+  },
+  {
+    "id": "probe-02",
+    "packet": {
+      "contract_version": "coverage-assessment-0.2",
+      "organization": "SYNTHETIC-PROBE",
+      "cell": "SEC",
+      "question": "Assess the supplied monthly access-review requirement for hosted systems.",
+      "requirement_id": "R1",
+      "evaluation_date": "2026-12-02",
+      "period_start": "2026-11-01",
+      "period_end": "2026-11-30",
+      "populations": [
+        "hosted"
+      ],
+      "rubric_version": "monthly-access-review-draft-0.1",
+      "criteria": {
+        "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+        "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+        "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+      },
+      "limitations": [
+        "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+        "No broader operational effectiveness or regulatory compliance conclusion."
+      ],
+      "layers": {
+        "identity_scope": [],
+        "governance_obligations": [
+          "R1"
+        ],
+        "risk_controls": [
+          "C1"
+        ],
+        "evidence_assurance": [
+          "E1",
+          "E2"
+        ],
+        "work_decisions": [],
+        "history_provenance": []
+      },
+      "sources": [
+        {
+          "id": "R1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "R1",
+          "revision": 1,
+          "layer": "governance_obligations",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://R1",
+          "text": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end."
+        },
+        {
+          "id": "C1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "C1",
+          "revision": 1,
+          "layer": "risk_controls",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://C1",
+          "text": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+        },
+        {
+          "id": "E1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E1",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E1",
+          "text": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+        },
+        {
+          "id": "E2",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E2",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E2",
+          "text": "K7 report export for November: no review completion or decision-recording details are included in this export."
+        }
+      ]
+    },
+    "proposal": {
+      "contract_version": "coverage-assessment-0.2",
+      "input_hash": "filled_by_runner",
+      "rows": [
+        {
+          "population": "hosted",
+          "control_fit": {
+            "state": "supported",
+            "explanation": "K7 addresses the monthly owner review requirement for hosted systems.",
+            "citations": [
+              {
+                "source_id": "R1",
+                "value": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end.",
+                "purpose": "support",
+                "field": "text"
+              },
+              {
+                "source_id": "C1",
+                "value": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "implementation": {
+            "state": "supported",
+            "explanation": "The implementation test establishes enabled review workflow, approved owners and the stated account population.",
+            "citations": [
+              {
+                "source_id": "E1",
+                "value": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "execution": {
+            "state": "supported",
+            "explanation": "The supplied export establishes timely completion of the review and decision recording.",
+            "citations": [
+              {
+                "source_id": "E2",
+                "purpose": "support",
+                "field": "text",
+                "value": "K7 report export for November: no review completion or decision-recording details are included in this export."
+              }
+            ]
+          }
+        }
+      ],
+      "questions": [],
+      "proposed_actions": []
+    }
+  },
+  {
+    "id": "probe-03",
+    "packet": {
+      "contract_version": "coverage-assessment-0.2",
+      "organization": "SYNTHETIC-PROBE",
+      "cell": "SEC",
+      "question": "Assess the supplied monthly access-review requirement for hosted systems.",
+      "requirement_id": "R1",
+      "evaluation_date": "2026-12-02",
+      "period_start": "2026-11-01",
+      "period_end": "2026-11-30",
+      "populations": [
+        "hosted"
+      ],
+      "rubric_version": "monthly-access-review-draft-0.1",
+      "criteria": {
+        "control_fit": "The control addresses all privileged accounts, approved-owner review and monthly deadline within each population.",
+        "implementation": "Applicable configuration/test evidence establishes that the described control is enabled, owned and covers the population.",
+        "execution": "Applicable November records establish review by approved owners of all accounts and recorded decisions by November 30. Late receipt alone is not late execution."
+      },
+      "limitations": [
+        "Synthetic source assertions; authenticity and population completeness are assumed for this exercise.",
+        "No broader operational effectiveness or regulatory compliance conclusion."
+      ],
+      "layers": {
+        "identity_scope": [],
+        "governance_obligations": [
+          "R1"
+        ],
+        "risk_controls": [
+          "C1"
+        ],
+        "evidence_assurance": [
+          "E1",
+          "E2"
+        ],
+        "work_decisions": [],
+        "history_provenance": []
+      },
+      "sources": [
+        {
+          "id": "R1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "R1",
+          "revision": 1,
+          "layer": "governance_obligations",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://R1",
+          "text": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end."
+        },
+        {
+          "id": "C1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "SEC",
+          "record": "C1",
+          "revision": 1,
+          "layer": "risk_controls",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://C1",
+          "text": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end."
+        },
+        {
+          "id": "E1",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E1",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E1",
+          "text": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population."
+        },
+        {
+          "id": "E2",
+          "organization": "SYNTHETIC-PROBE",
+          "cell": "IAM",
+          "record": "E2",
+          "revision": 1,
+          "layer": "evidence_assurance",
+          "populations": [
+            "hosted"
+          ],
+          "observed_on": "2026-12-02",
+          "received_on": "2026-12-02",
+          "status": "current",
+          "location": "synthetic://E2",
+          "text": "K7 execution report: approved owners reviewed all privileged accounts in hosted production on November 27 and recorded all review decisions on November 29, 2026. Received December 2."
+        }
+      ]
+    },
+    "proposal": {
+      "contract_version": "coverage-assessment-0.2",
+      "input_hash": "filled_by_runner",
+      "rows": [
+        {
+          "population": "hosted",
+          "control_fit": {
+            "state": "supported",
+            "explanation": "K7 addresses the monthly owner review requirement for hosted systems.",
+            "citations": [
+              {
+                "source_id": "R1",
+                "value": "Approved owners must review all privileged accounts on hosted production servers monthly, by month end.",
+                "purpose": "support",
+                "field": "text"
+              },
+              {
+                "source_id": "C1",
+                "value": "Control K7 requires approved owners to review all privileged accounts monthly for its stated population and record decisions by month end.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "implementation": {
+            "state": "supported",
+            "explanation": "The implementation test establishes enabled review workflow, approved owners and the stated account population.",
+            "citations": [
+              {
+                "source_id": "E1",
+                "value": "Configuration test for K7 on November 30 confirms the review process is enabled, assigned to approved owners and includes all privileged accounts in the stated population.",
+                "purpose": "support",
+                "field": "text"
+              }
+            ]
+          },
+          "execution": {
+            "state": "not_established",
+            "explanation": "The supplied records do not establish timely review completion and decision recording.",
+            "citations": [
+              {
+                "source_id": "E2",
+                "purpose": "support",
+                "field": "text",
+                "value": "K7 execution report: approved owners reviewed all privileged accounts in hosted production on November 27 and recorded all review decisions on November 29, 2026. Received December 2."
+              }
+            ]
+          }
+        }
+      ],
+      "questions": [],
+      "proposed_actions": []
+    }
+  }
+]

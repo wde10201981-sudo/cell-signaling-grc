@@ -1,0 +1,12 @@
+{
+  "baseline": "1c41430cddfca21e661cdddceaa061ebbe99b6c2",
+  "files": {
+    "cell_signaling/assessment_contract.py": "d11f41d570832ffd2d820dc77794e65f0f7f7577f40ff8215a4ad969192552f7",
+    "cell_signaling/local_ollama.py": "8a57aad35926e668e9cd1b527b5f925a84c0fe3b34f8a552c22159c4ac5049db",
+    "cell_signaling/test_protocol_identity.py": "e85249fb03cf49f82216d455e2d1b4d680546d2291dd2037b225d15134a060e6",
+    "cell_signaling/check_challenger.py": "afb45d03e832ad30dfda274f63669ce8864c5051782bcb817f7f8dfb12133a61",
+    "cell_signaling/test_challenger_probe.py": "27b2d656319376c83414b1c5aa4746f5fbdfae0c2b226a5b92f6a0344b395262",
+    "examples/challenge_probe_inputs.json": "c0095d12445dde14de0c7b8ec90c674ce620117d9f348d59cbf4b1fabed31a69",
+    "examples/challenge_probe_review.json": "b478440b3bd10f01c14a59cf9c0ecbf521933e5038bf98535ed6638bf795906e"
+  }
+}

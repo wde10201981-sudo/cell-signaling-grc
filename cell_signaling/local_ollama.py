@@ -4,11 +4,11 @@ import socket
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHandler
 
-from .assessment_contract import VERSION, DIMENSIONS, STATES, ContractError, digest
+from .assessment_contract import VERSION, DIMENSIONS, STATES, ContractError, digest, CHALLENGER_PROMPT_VERSION
 
 MODEL = 'qwen3:8b'
 BASE_URL = 'http://127.0.0.1:11434'
-ADAPTER_VERSION = 'ollama-probe-0.2'
+ADAPTER_VERSION = 'ollama-probe-0.3'
 OPTIONS = {'temperature': 0, 'num_ctx': 8192, 'num_predict': 3072}
 MAX_RESPONSE_BYTES = 2_000_000
 MAX_PROMPT_BYTES = 24_000
@@ -100,21 +100,34 @@ class LocalOllama:
         self.transport = transport
         self.calls = []
         self.metadata = {'adapter_version': ADAPTER_VERSION, 'model': MODEL,
+                         'challenger_prompt_version': CHALLENGER_PROMPT_VERSION,
                          'options': dict(OPTIONS), 'think': False, 'model_digest': None}
         self.ready = False
 
     def preflight(self):
         self.ready = False
-        models = self.transport('/api/tags')['models']
+        inventory = self.transport('/api/tags')
+        if not isinstance(inventory, dict) or not isinstance(inventory.get('models'), list):
+            raise LocalAIError('Invalid Ollama model inventory.')
+        models = inventory['models']
+        if any(not isinstance(model, dict) for model in models):
+            raise LocalAIError('Invalid Ollama model inventory entry.')
         match = next((m for m in models if m.get('name') == MODEL or m.get('model') == MODEL), None)
-        if match is None or not match.get('digest'):
+        if match is None:
             raise LocalAIError('qwen3:8b is not installed locally. Run ollama pull qwen3:8b.')
+        if not isinstance(match.get('digest'), str) or not match['digest'].strip():
+            raise LocalAIError('Invalid local model digest.')
         info = self.transport('/api/show', {'model': MODEL})
+        if not isinstance(info, dict):
+            raise LocalAIError('Invalid Ollama model description.')
         if info.get('remote_host') or info.get('remote_model'):
             raise LocalAIError('Remote model refused; use the local qwen3:8b weights.')
+        version = self.transport('/api/version')
+        if not isinstance(version, dict) or not isinstance(version.get('version'), str) or not version['version'].strip():
+            raise LocalAIError('Invalid Ollama version response.')
         self.metadata['model_digest'] = match['digest']
         self.metadata['model_details'] = match.get('details', {})
-        self.metadata['ollama_version'] = self.transport('/api/version').get('version')
+        self.metadata['ollama_version'] = version['version']
         self.ready = True
 
     def _chat(self, role, instructions, data, schema):
@@ -135,9 +148,14 @@ class LocalOllama:
                 raise LocalAIError('Invalid Ollama response envelope.')
             call['telemetry'] = {key: response.get(key) for key in (
                 'model', 'done', 'done_reason', 'prompt_eval_count', 'eval_count', 'total_duration', 'load_duration')}
+            if response.get('model') != MODEL:
+                raise LocalAIError('Response model does not match the requested local model.')
             message = response.get('message', {})
             if not isinstance(message, dict):
                 raise LocalAIError('Invalid message envelope.')
+            call['response_role'] = message.get('role')
+            if message.get('role') != 'assistant':
+                raise LocalAIError('Unexpected response role; assistant response required.')
             content = message.get('content', '')
             call['response_text'] = content
             call['thinking_characters'] = len(message.get('thinking', '') or '')

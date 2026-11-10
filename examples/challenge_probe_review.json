@@ -1,0 +1,21 @@
+{
+  "notice": "Reviewer-only expectations; never sent to the model. Synthetic regression set, not held-out generalization proof.",
+  "expected": {
+    "probe-01": {
+      "control_fit": "agrees",
+      "implementation": "agrees",
+      "execution": "agrees"
+    },
+    "probe-02": {
+      "control_fit": "agrees",
+      "implementation": "agrees",
+      "execution": "disagrees"
+    },
+    "probe-03": {
+      "control_fit": "agrees",
+      "implementation": "agrees",
+      "execution": "disagrees"
+    }
+  },
+  "review": "Check every factual clause, especially execution timing. Correct label with unsupported explanation fails reasoning review."
+}

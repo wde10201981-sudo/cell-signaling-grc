@@ -210,8 +210,15 @@ scope_limitation, field=populations and value equal to the complete source popul
 array. This reference only establishes that this particular source excludes the
 population. It does not prove no other control or evidence exists. Do not cite an
 AWS-only source as support for an on-premises judgment. No extra fields or markdown.'''
+CHALLENGER_PROMPT_VERSION = 'coverage-challenger-0.3'
 CHALLENGER_INSTRUCTIONS = '''Independently inspect original sources and each proposed
-population/dimension judgment against the criteria. Check every factual clause, source
+population/dimension judgment against the criteria. Judge whether the assessment is justified,
+not whether coverage exists. Agree with a justified not_established judgment: missing
+support is not a reason to disagree with abstention. Disagree with supported coverage
+that exceeds the evidence, or abstention that ignores sufficient applicable evidence.
+Use uncertain when you cannot resolve the interpretation. For disagrees, identify the
+disputed assertion and the source-grounded defect. Never turn missing evidence into
+proof of failed execution. Check every factual clause, source
 scope, entity identity, dates, counterevidence and missing information. Distinguish
 support citations from scope_limitation references. A scope limitation only proves
 that a particular source excludes a population, not that the entire organization lacks

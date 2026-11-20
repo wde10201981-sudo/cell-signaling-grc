@@ -1,0 +1,11 @@
+{
+  "reviewer_only": true,
+  "expectations": [
+    "supported_execution",
+    "not_established",
+    "adverse_evidence",
+    "adverse_evidence",
+    "needs_review"
+  ],
+  "notes": "Draft synthetic reference expectations. Inspect extracted states, dates and quotes before accepting rule output. Never load this file into model prompts. These are regression examples, not held-out evidence of generalization."
+}

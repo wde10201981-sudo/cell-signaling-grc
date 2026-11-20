@@ -1,0 +1,99 @@
+[
+  {
+    "id": "extract-01",
+    "packet": {
+      "requirement_id": "R-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-11-01",
+      "deadline": "2026-11-30",
+      "sources": [
+        {
+          "id": "S1",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "Approved owners completed the November privileged-account review for all hosted production accounts on 2026-11-27."
+        }
+      ]
+    }
+  },
+  {
+    "id": "extract-02",
+    "packet": {
+      "requirement_id": "R-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-11-01",
+      "deadline": "2026-11-30",
+      "sources": [
+        {
+          "id": "S1",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "The November hosted privileged-account report export contains no review completion details."
+        }
+      ]
+    }
+  },
+  {
+    "id": "extract-03",
+    "packet": {
+      "requirement_id": "R-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-11-01",
+      "deadline": "2026-11-30",
+      "sources": [
+        {
+          "id": "S1",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "The approved owner confirms the November review of hosted production privileged accounts was not performed."
+        }
+      ]
+    }
+  },
+  {
+    "id": "extract-04",
+    "packet": {
+      "requirement_id": "R-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-11-01",
+      "deadline": "2026-11-30",
+      "sources": [
+        {
+          "id": "S1",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "Approved owners completed the November privileged-account review for all hosted production accounts on 2026-12-03."
+        }
+      ]
+    }
+  },
+  {
+    "id": "extract-05",
+    "packet": {
+      "requirement_id": "R-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-11-01",
+      "deadline": "2026-11-30",
+      "sources": [
+        {
+          "id": "S1",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "Approved owners completed the November privileged-account review for all hosted production accounts on 2026-11-27."
+        },
+        {
+          "id": "S2",
+          "population": "hosted",
+          "period_start": "2026-11-01",
+          "deadline": "2026-11-30",
+          "text": "The approved owner confirms the November review of hosted production privileged accounts was not performed."
+        }
+      ]
+    }
+  }
+]

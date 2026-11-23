@@ -1,0 +1,10 @@
+{
+  "baseline_commit": "51e48301f1a0c2f277a9fe9c21a8a9253d7fd485",
+  "files": {
+    "cell_signaling/evidence_extraction.py": "8886d6d1162f8d0217102905ce33b7dac003920170a894b6f7aab570eccfc066",
+    "cell_signaling/local_ollama.py": "8a57aad35926e668e9cd1b527b5f925a84c0fe3b34f8a552c22159c4ac5049db",
+    "cell_signaling/assessment_contract.py": "d11f41d570832ffd2d820dc77794e65f0f7f7577f40ff8215a4ad969192552f7",
+    "cell_signaling/check_extraction.py": "47aa8a0a493619379e29f2b43bbed5e1a5438007a1e35b3b6a6281738e544171",
+    "examples/extraction_variants_inputs.json": "365cec1fd7e648012ba46652718e6c8d47c8917fd8aed37e06ea1fe0d8b940ab"
+  }
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "variant-01",
+    "packet": {
+      "requirement_id": "R-DEC-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-12-01",
+      "deadline": "2026-12-31",
+      "sources": [
+        {
+          "id": "DOC-A",
+          "population": "hosted",
+          "period_start": "2026-12-01",
+          "deadline": "2026-12-31",
+          "text": "The authorized owners signed off the December privileged-account review on 2026-12-29. Every hosted production account was included; the review is finished."
+        }
+      ]
+    }
+  },
+  {
+    "id": "variant-02",
+    "packet": {
+      "requirement_id": "R-DEC-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-12-01",
+      "deadline": "2026-12-31",
+      "sources": [
+        {
+          "id": "DOC-A",
+          "population": "hosted",
+          "period_start": "2026-12-01",
+          "deadline": "2026-12-31",
+          "text": "The authorized owners scheduled the December review of all hosted production privileged accounts for 2026-12-29. This memo records the plan only; it gives no account of whether the review occurred."
+        }
+      ]
+    }
+  },
+  {
+    "id": "variant-03",
+    "packet": {
+      "requirement_id": "R-DEC-REVIEW",
+      "population": "on-premises",
+      "period_start": "2026-12-01",
+      "deadline": "2026-12-31",
+      "sources": [
+        {
+          "id": "DOC-A",
+          "population": "on-premises",
+          "period_start": "2026-12-01",
+          "deadline": "2026-12-31",
+          "text": "The December privileged-account review covered all AWS production accounts and was completed by approved owners on 2026-12-28. For on-premises production accounts, this report provides no review completion information."
+        }
+      ]
+    }
+  },
+  {
+    "id": "variant-04",
+    "packet": {
+      "requirement_id": "R-DEC-REVIEW",
+      "population": "hosted",
+      "period_start": "2026-12-01",
+      "deadline": "2026-12-31",
+      "sources": [
+        {
+          "id": "DOC-A",
+          "population": "hosted",
+          "period_start": "2026-12-01",
+          "deadline": "2026-12-31",
+          "text": "Approved owners completed the December privileged-account review for every hosted production account. The completion-date field reads 01/02/2027; no date-format convention is specified."
+        }
+      ]
+    }
+  },
+  {
+    "id": "variant-05",
+    "packet": {
+      "requirement_id": "R-DEC-REVIEW",
+      "population": "aws",
+      "period_start": "2026-12-01",
+      "deadline": "2026-12-31",
+      "sources": [
+        {
+          "id": "DOC-A",
+          "population": "aws",
+          "period_start": "2026-12-01",
+          "deadline": "2026-12-31",
+          "text": "Approved owners completed the December privileged-account review for every AWS production account on 2026-12-30. Separately, approved owners completed the December review for every on-premises production account on 2027-01-04."
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "reviewer_only": true,
+  "status": "draft_reference_requires_expert_review",
+  "notes": "Novel authored variants after freezing the prompt; no model tuning on these cases. Not a statistically representative or independently authored benchmark. Inspect assertions and quote relevance, not labels alone.",
+  "cases": [
+    {
+      "id": "variant-01",
+      "completion": "completed",
+      "completed_on": "2026-12-29",
+      "result": "supported_execution",
+      "rationale": "Finished review and sign-off establish completion, with all target accounts included."
+    },
+    {
+      "id": "variant-02",
+      "completion": "not_stated",
+      "completed_on": null,
+      "result": "not_established",
+      "rationale": "A scheduled date and plan do not establish actual completion or nonperformance."
+    },
+    {
+      "id": "variant-03",
+      "completion": "not_stated",
+      "completed_on": null,
+      "result": "not_established",
+      "rationale": "AWS completion does not establish on-premises completion. Do not copy the AWS date."
+    },
+    {
+      "id": "variant-04",
+      "completion": "completed",
+      "completed_on": null,
+      "result": "not_established",
+      "rationale": "Completion is explicit, but the frozen contract accepts only explicit ISO completion dates. Do not normalize or guess 01/02/2027. This is a representation limitation, not evidence of timely execution."
+    },
+    {
+      "id": "variant-05",
+      "completion": "completed",
+      "completed_on": "2026-12-30",
+      "result": "supported_execution",
+      "rationale": "Use the AWS completion date for the AWS assignment, not the later on-premises date."
+    }
+  ]
+}

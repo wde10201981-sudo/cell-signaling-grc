@@ -52,6 +52,28 @@ class ExtractionTests(unittest.TestCase):
         a['observations'][0]['completed_on']='2026-11-27'
         with self.assertRaises(ContractError):evaluate(p,a)
 
+    def test_not_stated_accepts_exact_quote_without_changing_judgment(self):
+        p = self.cases[1]['packet']
+        a = authored(p, [('not_stated', None)])
+        a['observations'][0]['quote'] = p['sources'][0]['text']
+        original = copy.deepcopy(a)
+        self.assertEqual(evaluate(p, a)['result'], 'not_established')
+        self.assertEqual(a, original)
+        a['observations'][0]['completed_on'] = '2026-11-27'
+        with self.assertRaises(ContractError):
+            evaluate(p, a)
+
+    def test_not_stated_rejects_invented_nontext_and_wrong_source_quotes(self):
+        p = copy.deepcopy(self.cases[1]['packet'])
+        other = dict(p['sources'][0], id='S2', text='A separate source passage.')
+        p['sources'].append(other)
+        for quote in ['Invented excerpt.', None, 7, [], '   ', other['text']]:
+            with self.subTest(quote=quote):
+                a = authored(p, [('not_stated', None), ('not_stated', None)])
+                a['observations'][0]['quote'] = quote
+                with self.assertRaises(ContractError):
+                    evaluate(p, a)
+
     def exercise(self,fail=False):
         calls=[];tags=0
         def transport(path,payload=None):

@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from cell_signaling.assessment_contract import digest
-from cell_signaling.check_extraction_variants import ROOT, load_inputs, verify_frozen, run_variants
+from cell_signaling.check_extraction_variants import ROOT, load_inputs, verify_frozen, run_variants, run_single_variant
 from cell_signaling.local_ollama import LocalOllama, MODEL
 
 
@@ -57,3 +57,34 @@ class ExtractionVariantTests(unittest.TestCase):
         for payload, case in zip(sent, load_inputs()):
             self.assertEqual(json.loads(payload['messages'][1]['content'])['assignment'], case['packet'])
             self.assertNotIn('variant-0', json.dumps(payload))
+
+    def test_single_case_request_matches_frozen_batch(self):
+        sent = []
+        def transport(path, payload=None):
+            if path == '/api/tags': return {'models': [{'name': MODEL, 'digest': 'offline-mock'}]}
+            if path == '/api/show': return {}
+            if path == '/api/version': return {'version': 'offline-mock'}
+            sent.append(payload)
+            p = json.loads(payload['messages'][1]['content'])['assignment']
+            answer = {'input_hash': digest(p), 'observations': [
+                {'source_id': s['id'], 'completion': 'not_stated', 'completed_on': None, 'quote': ''}
+                for s in p['sources']]}
+            return {'model': MODEL, 'done': True, 'done_reason': 'stop',
+                    'prompt_eval_count': 900, 'eval_count': 100,
+                    'message': {'role': 'assistant', 'content': json.dumps(answer)}}
+        run_variants(LocalOllama(transport))
+        self.assertEqual(len(sent), 5)
+        expected = sent[-1]
+        sent.clear()
+        record = run_single_variant(LocalOllama(transport), 'variant-05')
+        self.assertEqual(sent, [expected])
+        self.assertEqual(record['status'], 'completed_needs_review')
+        self.assertEqual([c['id'] for c in record['cases']], ['variant-05'])
+
+    def test_single_case_failure_remains_diagnostic(self):
+        def transport(path, payload=None):
+            raise TimeoutError('Offline failure simulation')
+        record = run_single_variant(LocalOllama(transport), 'variant-05')
+        self.assertEqual(record['status'], 'processing_failed')
+        self.assertEqual(record['cases'][0]['status'], 'diagnostic_only')
+        self.assertNotIn('assessment', record['cases'][0])

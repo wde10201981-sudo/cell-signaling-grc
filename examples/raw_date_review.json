@@ -1,0 +1,23 @@
+{
+  "reviewer_only": true,
+  "status": "draft_requires_expert_review",
+  "evaluation_set": "raw-date-regression-0.1",
+  "expectations": {
+    "variant-01": "supported_execution",
+    "variant-02": "not_established",
+    "variant-03": "not_established",
+    "variant-04": "adverse_evidence",
+    "variant-05": "supported_execution"
+  },
+  "variant_04_date": {
+    "raw_date": "01/02/2027",
+    "date_status": "ambiguous",
+    "exact_date": null,
+    "candidate_dates": [
+      "2027-01-02",
+      "2027-02-01"
+    ],
+    "deadline_relation": "after_deadline"
+  },
+  "limitations": "These are known regression cases, not held-out proof. Review extraction semantics and population attribution separately."
+}
